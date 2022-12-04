@@ -2,7 +2,7 @@ import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from sqlmodel import create_engine, select, Session
+from sqlmodel import *
 
 from models import *
 
@@ -46,6 +46,18 @@ def all_users():
         statement = select(Users)
         return session.exec(statement).all()
 
+
+@app.get("/dasd")
+def all_users():
+    with Session(engine) as session:
+        # user = Users(surname='ahd')
+
+        statement = select(Users).where(Users.id == 6)
+        user = session.exec(statement).one()
+        user.name = '12345'
+        session.add(user)
+        session.commit()
+        return 'ok'
 
 
 if __name__ == "__main__":
