@@ -36,27 +36,16 @@ def all_property():
 @app.get("/user/{user_name}")
 def search_user_by_name(user_name: str):
     with Session(engine) as session:
-        statement = select(Property).where(Property.title == user_name)
-        return session.exec(statement).all()
+        statement = select(Users).where(Users.surname == user_name)
+        return session.exec(statement).one_or_none()
 
 
-@app.get("/alluser")
+@app.get("/allusers")
 def all_users():
     with Session(engine) as session:
         statement = select(Users)
         return session.exec(statement).all()
 
-
-@app.post("/register/{text}")
-def register_user(text: str, a: str, c: str, d: str):
-    with Session(engine) as session:
-        statement = select(Property)
-    return text
-
-
-@app.post("/dummypath")
-async def get_body(request: Request):
-    return await request.json()
 
 
 if __name__ == "__main__":

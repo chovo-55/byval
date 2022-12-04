@@ -11,14 +11,14 @@ class Property(SQLModel, table=True):
     longitude: int
     latitude: int
     number_of_rooms: int
-    flag_migrant: int
-    flag_low_budget: int
-    flag_pensioner: int
+    flag_migrants: int
+    flag_low_budgets: int
+    flag_pensioners: int
     flag_newlyweds: int
-    flag_handicap: int
-    flag_orphanage: int
-    flag_single_parent: int
-    flag_regular: int
+    flag_handicaps: int
+    flag_orphanages: int
+    flag_single_parents: int
+    flag_regulars: int
 
 
 class Users(SQLModel, table=True):
@@ -28,14 +28,14 @@ class Users(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
     age: str
     mail: int
-    flag_migrant: int
-    flag_low_budget: int
-    flag_pensioner: int
+    flag_migrants: int
+    flag_low_budgets: int
+    flag_pensioners: int
     flag_newlyweds: int
-    flag_handicap: int
-    flag_orphanage: int
-    flag_single_parent: int
-    flag_regular: int
+    flag_handicaps: int
+    flag_orphanages: int
+    flag_single_parents: int
+    flag_regulars: int
 
 
 class PropertyAdmin(ModelView, model=Property):
@@ -49,14 +49,14 @@ class PropertyAdmin(ModelView, model=Property):
         Property.longitude,
         Property.latitude,
         Property.number_of_rooms,
-        Property.flag_migrant,
-        Property.flag_low_budget,
-        Property.flag_pensioner,
+        Property.flag_migrants,
+        Property.flag_low_budgets,
+        Property.flag_pensioners,
         Property.flag_newlyweds,
-        Property.flag_handicap,
-        Property.flag_orphanage,
-        Property.flag_single_parent,
-        Property.flag_regular
+        Property.flag_handicaps,
+        Property.flag_orphanages,
+        Property.flag_single_parents,
+        Property.flag_regulars
     ]
 
 class UsersAdmin(ModelView, model=Users):
@@ -65,12 +65,12 @@ class UsersAdmin(ModelView, model=Users):
     column_list = [
         Users.name,
         Users.surname,
-        Users.flag_migrant,
-        Users.flag_low_budget,
-        Users.flag_pensioner,
+        Users.flag_migrants,
+        Users.flag_low_budgets,
+        Users.flag_pensioners,
         Users.flag_newlyweds,
-        Users.flag_handicap,
-        Users.flag_orphanage,
-        Users.flag_single_parent,
-        Users.flag_regular
+        Users.flag_handicaps,
+        Users.flag_orphanages,
+        Users.flag_single_parents,
+        Users.flag_regulars
     ]
